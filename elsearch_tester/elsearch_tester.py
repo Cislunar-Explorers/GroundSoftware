@@ -28,8 +28,11 @@ class ServerTester:
         listen for data from client and print out data
         """
         while True:
+            
             data, addr = self.serverSock.recvfrom(2048)
             print(f"data received from addr:{addr}")
-            elasticsearch_addr = "http://" + server_ip + ":9200"
-            response = requests.put(elasticsearch_addr, data = data)
+
+            headers = {'content-type': 'application/json'}
+            url = "http://localhost:9200/tester/name"
+            response = requests.post(url, data = data, headers=headers)
             print(response.headers)
