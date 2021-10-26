@@ -23,12 +23,13 @@ class ServerTester:
         data_dict = ast.literal_eval(dict_str)
         return data_dict
 
-    def listen_for_data(self):
+    def upload_data(self, server_ip:str):
         """
         listen for data from client and print out data
         """
         while True:
             data, addr = self.serverSock.recvfrom(2048)
             print(f"data received from addr:{addr}")
-            response = requests.put('http://localhost:9200', data = data)
+            elasticsearch_addr = "http://" + server_ip + ":9200"
+            response = requests.put(elasticsearch_addr, data = data)
             print(response.headers)
