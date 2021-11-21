@@ -2,8 +2,9 @@ import ast
 import socket
 import requests
 
-class ServerTester:
-  
+
+class udp_server:
+
     def __init__(self, addr: str, port: int):
         """
         create a UDP socket server side
@@ -23,16 +24,15 @@ class ServerTester:
         data_dict = ast.literal_eval(dict_str)
         return data_dict
 
-    def upload_data(self, server_ip:str):
+    def upload_data(self, api_url: str):
         """
         listen for data from client and print out data
         """
         while True:
-            
+
             data, addr = self.serverSock.recvfrom(2048)
             print(f"data received from addr:{addr}")
 
             headers = {'content-type': 'application/json'}
-            url = "http://localhost:9200/tester/name"
-            response = requests.post(url, data = data, headers=headers)
+            response = requests.post(api_url, data=data, headers=headers)
             print(response.headers)
