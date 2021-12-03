@@ -14,7 +14,7 @@ class udp_server:
         """
         self.serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.serverSock.bind((addr, port))
-        print("UDP server up and listening")
+        print("UDP server up and listening\n")
 
 
     def binary_to_dict(self, the_data: bytes):
@@ -38,10 +38,10 @@ class udp_server:
         while True:
 
             data, addr = self.serverSock.recvfrom(2048)
-            print(f"data received from addr:{addr}")
+            print(f"data received from addr:{addr}\n")
 
             # # uncomment for debugging
-            # print(f"data = {self.binary_to_dict(data)}")
+            # print(f"data = {self.binary_to_dict(data)}\n")
 
             headers = {'content-type': 'application/json'}
             response = requests.post(api_url, data=data, headers=headers)
