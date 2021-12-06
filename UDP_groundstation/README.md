@@ -3,7 +3,7 @@
   <img src="/UDP_groundstation/media/schematic.png" width="500" title="hover text" alt="data pipeline schematic here">
 </p>
 
-This repository concerns the UDP server step of the data pipeline. The UDP server on the HITL Pi listens for and receives data from the UDP client on the FlatSat Pi. It is required that the FlatSat and HITL Pi to be connected to the same network and that the Django server is running in the same localhost at port 8000.
+This repository concerns the UDP server step of the data pipeline. The UDP server on the HITL Pi listens for and receives data from the UDP client on the FlatSat Pi. It is required that the FlatSat and HITL Pi is connected to the same network and that the Django server is running in the same localhost at port 8000.
 
 For information on the UDP client step, view: https://github.com/Cislunar-Explorers/FlightSoftware/tree/master/udp_client
 
@@ -18,7 +18,7 @@ Install requests if not installed on system.
 pip install requests
 ```
 
-From this directory, run the server
+From this directory, run the server.
 ```
 python3 main.py
 ```
