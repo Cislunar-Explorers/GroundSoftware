@@ -11,7 +11,7 @@ For information on the Django and Grafana steps, view: https://github.com/Cislun
 
 
 # Set up instructions
-<i>Note</i>: Before running the UDP server, make sure your Django server is running. If you are unsure, follow the url localhost:8000 on the HITL Pi's browser. If the page does not return a Django REST Framework page titled "Test Connection", you need to start your Django server - follow the instructions in the Django and Grafana links above. 
+<i>Note</i>: Before running the UDP server, make sure the Django server is running. If unsure, follow the url localhost:8000 on the HITL Pi's browser. If the page does not return a Django REST Framework page titled "Test Connection", you need to start the Django server - follow the instructions in the Django and Grafana links above. 
 
 Install requests if not installed on system.
 ```
