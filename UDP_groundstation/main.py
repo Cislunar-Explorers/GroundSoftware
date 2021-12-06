@@ -1,5 +1,7 @@
-from udp_server_tester.servertester import ServerTester
+#!/usr/bin/env python3
+from server.udp_server import udp_server
+import requests
 
 if __name__ == "__main__":
-    server = ServerTester("192.168.0.101", 3333)
-    server.listen_for_data()
+    server = udp_server("192.168.0.200", 3333)
+    server.upload_data("localhost:8000/addData")
