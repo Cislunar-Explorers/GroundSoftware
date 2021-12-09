@@ -4,7 +4,7 @@ import os
 from time import sleep
 
 # Necessary Comm Port information (need to check syntax)
-port = Comm3
+port = "COM3"
 baud = 9600
 # loop variable
 loop = 1

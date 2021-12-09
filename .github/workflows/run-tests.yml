@@ -1,0 +1,19 @@
+name: Pytest testing
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7.5"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyserial
+      - name: Run pyright
+        uses: jakebailey/pyright-action@v1.0.2
