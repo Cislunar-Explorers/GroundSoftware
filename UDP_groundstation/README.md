@@ -15,9 +15,9 @@ For information on the Grafana step, view: (doc coming soon)
 
 
 # Set up instructions
-<i>Note</i>: Before running the UDP server, make sure the Django server is running. If unsure, follow the url localhost:8000 on the HITL Pi's browser. If the page does not return a Django REST Framework page titled "Test Connection", you need to start the Django server - follow the instructions in the Django step link above. 
+<i>Note</i>: Before running the UDP server, make sure the Django server is running. If unsure, follow the url https://cislunar-data.herokuapp.com/.
 
-Install requests if not installed on system.
+Install requests if not installed on system.     
 ```
 pip install requests
 ```
