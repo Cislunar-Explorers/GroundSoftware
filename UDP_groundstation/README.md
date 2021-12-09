@@ -3,7 +3,7 @@
   <img src="/UDP_groundstation/media/frame.png" width="750" title="hover text" alt="data pipeline schematic here">
 </p>
 
-This repository concerns the UDP server step of the data pipeline. The UDP server on the HITL Pi listens for and receives data from the UDP client on the FlatSat Pi. Upon receiving data, the UDP server sends the data to the specified API endpoint. It is required that the FlatSat and HITL Pi are connected to the same network. 
+This repository concerns the UDP server step of the data pipeline. The UDP server on the HITL Pi listens for and receives data from the UDP client on the FlatSat Pi. Upon receiving data, the UDP server sends the data with a request to the specified API endpoint. It is required that the FlatSat and HITL Pi are connected to the same network. 
 
 Note that since UDP is a connectionless protocol, the client cannot confirm that the server has received a message, and the server cannot confirm if messages were lost along the way.
 
