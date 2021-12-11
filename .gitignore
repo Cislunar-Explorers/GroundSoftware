@@ -8,3 +8,4 @@ env.bak/
 venv.bak/
 cislunar-venv/
 __pycache__/
+UDP_groundstation/checkdata.py

@@ -15,6 +15,8 @@ class udp_server:
         self.serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.serverSock.bind((addr, port))
         logging.info("UDP server up and listening\n")
+        
+        self.time_check = 0;
 
 
     def binary_to_dict(self, the_data: bytes):
@@ -36,13 +38,14 @@ class udp_server:
         @param api_url: API endpoint url
         """
         while True:
-
+            # receive data from UDP client
             data, addr = self.serverSock.recvfrom(2048)
             logging.info(f"data received from addr:{addr}\n")
 
-            # # uncomment for debugging
-            # logging.debug(f"data = {self.binary_to_dict(data)}\n")
-
-            headers = {'content-type': 'application/json'}
-            response = requests.post(api_url, data=data, headers=headers)
-            logging.info(response.headers)
+            # send to API if data packet arrived in correct order
+            data_dict = self.binary_to_dict(data)
+            if (data_dict["time"] > self.time_check):
+                headers = {'content-type': 'application/json'}
+                response = requests.post(api_url, data=data, headers=headers)
+                logging.info(response.headers)
+                self.time_check = data_dict["time"]
