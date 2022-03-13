@@ -12,9 +12,14 @@ class udp_server:
         @param addr: the IP address of the server
         @param port: the port that the server is running in
         """
+        logging.basicConfig(level=logging.INFO)
+
         self.serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.serverSock.bind((addr, port))
+        # print(f"running,{addr},{port}")
+        # logging.warning("UDP server up\n")
         logging.info("UDP server up and listening\n")
+        # print("end")
 
 
     def binary_to_dict(self, the_data: bytes):
@@ -34,10 +39,14 @@ class udp_server:
         listen for data from client and send to django API
 
         @param api_url: API endpoint url
+        
         """
+        logging.basicConfig(level=logging.INFO)
+
         while True:
 
             data, addr = self.serverSock.recvfrom(2048)
+            # print(f"print data: {addr}")
             logging.info(f"data received from addr:{addr}\n")
 
             # # uncomment for debugging
