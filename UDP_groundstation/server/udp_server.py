@@ -16,10 +16,7 @@ class udp_server:
 
         self.serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.serverSock.bind((addr, port))
-        # print(f"running,{addr},{port}")
-        # logging.warning("UDP server up\n")
         logging.info("UDP server up and listening\n")
-        # print("end")
 
 
     def binary_to_dict(self, the_data: bytes):
@@ -46,7 +43,6 @@ class udp_server:
         while True:
 
             data, addr = self.serverSock.recvfrom(2048)
-            # print(f"print data: {addr}")
             logging.info(f"data received from addr:{addr}\n")
 
             # # uncomment for debugging
